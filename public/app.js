@@ -44,21 +44,23 @@ var createImg = function(pokemon){
 
 var createName = function(pokemon){
   var name = document.createElement('li')
-  name.innerText = "Name: " + pokemon.name
+  name.innerText = "Name: " + pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
   return name
 
 }
 
+
+
 var createWeight = function(pokemon){
   var weight = document.createElement('li')
-  weight.innerText = "Weight: " + pokemon.weight
+  weight.innerText = "Weight: " + (pokemon.weight/10) + "kg"
   return weight
 
 }
 
 var createHeight = function(pokemon){
   var height = document.createElement('li')
-  height.innerText = "Height: " + pokemon.height
+  height.innerText = "Height: " + pokemon.height +"0cm"
   return height
 
 }
