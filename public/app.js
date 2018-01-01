@@ -26,14 +26,51 @@ var makeRequest = function() {
 
 var renderPokemon = function(pokemon){
   var pokemonInfo = document.getElementById('pokemon-info')
+  while(pokemonInfo.firstChild){
+    pokemonInfo.removeChild(pokemonInfo.firstChild)
+  }
+  pokemonInfo.appendChild(createImg(pokemon))
+  pokemonInfo.appendChild(createName(pokemon))
+  pokemonInfo.appendChild(createWeight(pokemon))
+  pokemonInfo.appendChild(createHeight(pokemon))
+  pokemonInfo.appendChild(createType(pokemon))
+}
+
+var createImg = function(pokemon){
   var img =  document.createElement('img')
-  console.log(pokemon.sprites.front_default)
   img.src = pokemon.sprites.front_default
-  pokemonInfo.appendChild(img)
+  return img
+}
 
-
-
+var createName = function(pokemon){
+  var name = document.createElement('li')
+  name.innerText = "Name: " + pokemon.name
+  return name
 
 }
+
+var createWeight = function(pokemon){
+  var weight = document.createElement('li')
+  weight.innerText = "Weight: " + pokemon.weight
+  return weight
+
+}
+
+var createHeight = function(pokemon){
+  var height = document.createElement('li')
+  height.innerText = "Height: " + pokemon.height
+  return height
+
+}
+
+var createType = function(pokemon){
+  var type = document.createElement('li')
+  type.innerText = "Type: " + pokemon.types[0].type.name
+  return type
+
+}
+
+
+
 
 window.addEventListener('load', app)
